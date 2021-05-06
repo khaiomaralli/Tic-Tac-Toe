@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src = "script.js" defer></script>
+    <title>Tic Tac Toe</title>
+</head>
+
+<body>
+<fieldset>
+    <legend>TIC TAC TOE</legend><br>
+    <div><a href="game.html"><button>New Game</button></div><br></a>
+    <div><a href="how.html"><button>How to Play?</button></div><br></a>
+    <div><button onclick="close_window();return false;">Exit</button></div><br>
+</fieldset>
+
+</body>
+
+<style>
+    html{
+    /*align elements easily*/
+    box-sizing: border-box;
+    background: #2193b0;
+    background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
+    background: linear-gradient(to right, #6dd5ed, #2193b0);
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    background-image: url("wooden.jpg");
+    font-size: 40px;
+}
+
+/*set the box to inherit*/
+*, *:before, *after {
+    box-sizing: inherit;
+}
+
+body{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /*viewperheight*/
+    text-align: center;
+}
+
+button{
+    font-size: 40px;
+    background-color: #388a8a;
+    color: white;
+    border: none;
+    padding: 9px 18px; /*9px top and bottom space, 18px left and right space*/
+    border-radius: 4px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.16),
+                0 2px 5px rgba(0,0,0,0.26);
+   transition: 0.2s ease-out;    
+   cursor: pointer;         
+}
+
+button:hover{
+    background-color: #009999;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.16), 0 5px rgba(0,0,0,0.26);
+}
+</style>
+
+<script>
+    function close_window(){
+        close();
+    }
+    </script>
+
+</html>

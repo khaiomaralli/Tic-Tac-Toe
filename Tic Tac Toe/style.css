@@ -1,0 +1,176 @@
+html{
+    /*align elements easily*/
+    box-sizing: border-box;
+    background: #2193b0;
+    background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
+    background: linear-gradient(to right, #6dd5ed, #2193b0);
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    background-image: url("wooden.jpg");
+}
+
+/*set the box to inherit*/
+*, *:before, *after {
+    box-sizing: inherit;
+}
+
+body{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /*viewperheight*/
+    text-align: center;
+}
+
+.board{
+    display: grid;
+    grid-template-columns: repeat(3, auto); /*create 3 columns with auto sizing*/
+    /*gives space 40px for top and bottom, left and right set to auto*/
+    margin: 40px auto;
+}
+
+.square{
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    transition: 0.2s ease-out;
+    cursor: pointer;
+    position: relative;
+}
+
+.square:hover{
+    background-color: #dddddd;
+}
+
+.gameover .square:hover,
+.square.X.hover,
+.square.O.hover{
+    background-color: transparent;
+    cursor: default;
+}
+.square .outline{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+}
+
+.square .foreground{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+}
+
+.square.X .outline:before{
+    content: "";
+    background-color: black;
+    width: 14px;
+    height: 58px;
+    position: absolute;
+    transform: rotate(45deg);
+    z-index: 2;
+}
+
+.square.X .outline:after{
+    content: "";
+    background-color: black;
+    width: 14px;
+    height: 58px;
+    position: absolute;
+    transform: rotate(-45deg);
+    z-index: 2;
+}
+
+.square.X .foreground:before{
+    content: "";
+    background-color: red;
+    width: 8px;
+    height: 52px;
+    position: absolute;
+    transform: rotate(45deg);
+    z-index: 3;
+}
+
+.square.X .foreground:after{
+    content: "";
+    background-color: red;
+    width: 8px;
+    height: 52px;
+    position: absolute;
+    transform: rotate(-45deg);
+    z-index: 3;
+}
+
+.square.O .outline:before{
+    content: "";
+    background: transparent;
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    border-radius: 50%; /*this will make it circle*/
+    border: 8px solid black;
+    z-index: 2;
+}
+
+.square.O .foreground:after{
+    content: "";
+    background: transparent;
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    border-radius: 50%; /*this will make it circle*/
+    border: 8px solid rgb(32, 32, 155);
+    z-index: 3;
+}
+
+    
+.square:nth-of-type(1),
+.square:nth-of-type(2),
+.square:nth-of-type(3) {
+    /*remove line on top row*/
+    border-top: none;
+}
+
+
+.square:nth-of-type(1),
+.square:nth-of-type(4),
+.square:nth-of-type(7) {
+    /*remove line on left column*/
+    border-left: none;
+}
+
+.square:nth-of-type(3),
+.square:nth-of-type(6),
+.square:nth-of-type(9) {
+    /*remove line on right column*/
+    border-right: none;
+}
+
+.square:nth-of-type(7),
+.square:nth-of-type(8),
+.square:nth-of-type(9) {
+    /*remove line on botton row*/
+    border-bottom: none;
+}
+
+/*style the button*/
+button{
+    background-color: #388a8a;
+    color: white;
+    border: none;
+    padding: 9px 18px; /*9px top and bottom space, 18px left and right space*/
+    border-radius: 4px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.16),
+                0 2px 5px rgba(0,0,0,0.26);
+   transition: 0.2s ease-out;    
+   cursor: pointer;         
+}
+
+button:hover{
+    background-color: #009999;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.16), 0 5px rgba(0,0,0,0.26);
+}
